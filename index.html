@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGen - Writecream AI</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>AI Code Assistant | Generate Code from Prompts - Writecream AI</title>
+  <meta name="description" content="Transform your ideas into code instantly using Writecream AI's Code Assistant. Build apps, components, scripts, and more with just a prompt. Free, fast, and no login required." />
+  <meta name="keywords" content="AI code generator, coding AI assistant, generate code with AI, prompt to code, AI programming tool, JavaScript code generator, Python code assistant, React component generator, SaaS landing page builder, code generator online" />
+  <meta name="author" content="Writecream AI" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="language" content="English" />
+  <meta name="distribution" content="global" />
+  <meta name="rating" content="General" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="application-name" content="Writecream AI Code Assistant" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.writecream.com/code-assistant/" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.writecream.com/code-assistant/" />
+  <meta property="og:title" content="Code Generator - Turn Prompts into Code Instantly with AI" />
+  <meta property="og:description" content="Use natural language to generate production-ready code with Writecream AI. Build React apps, Python scripts, APIs, and more — instantly." />
+  <meta property="og:image" content="https://www.writecream.com/wp-content/uploads/2025/03/code-assistant.png" />
+  <meta property="og:site_name" content="Writecream AI" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.writecream.com/code-assistant/" />
+  <meta name="twitter:title" content="AI Code Assistant - Build Code from Prompts Instantly" />
+  <meta name="twitter:description" content="Build apps, UIs, dashboards, APIs, and more — just describe what you need. Try Writecream AI's code generator today." />
+  <meta name="twitter:image" content="https://www.writecream.com/wp-content/uploads/2025/03/code-assistant.png" />
+  <meta name="twitter:creator" content="@WriteCreamAI" />
+
+  <!-- Instagram -->
+  <meta property="og:see_also" content="https://www.instagram.com/writecreamai/" />
+  <meta name="instagram:site" content="@writecreamai" />
+  <meta name="instagram:image" content="https://www.writecream.com/wp-content/uploads/2025/03/code-assistant.png" />
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="geo.region" content="US" />
+  <meta name="geo.placename" content="New York, USA" />
+  <meta name="geo.position" content="40.7128;-74.0060" />
+  <meta name="ICBM" content="40.7128, -74.0060" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Schema Markup (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Code Assistant - Writecream AI",
+    "url": "https://www.writecream.com/code-assistant/",
+    "description": "Turn natural language into code using Writecream AI’s Code Assistant. Create websites, dashboards, mobile apps, APIs and more — instantly.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Writecream AI",
+      "url": "https://www.writecream.com/"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "5201"
+    }
+  }
+  </script>
+
+  <!-- Fonts and CSS -->
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /> -->
+  <link rel="stylesheet" href="styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.2.0",
+          "react-dom": "https://esm.sh/react-dom@18.2.0",
+          "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+          "@codesandbox/sandpack-react": "https://esm.sh/@codesandbox/sandpack-react@2.8.0?deps=react@18.2.0&deps=react-dom@18.2.0"
+        }
+      }
+    </script>
+    <script src="https://kit.fontawesome.com/bc081792d4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-flex">
+            <div class="logo-group" onclick="goToHomepage()" style="cursor: pointer; display: flex; align-items: center; gap: 10px;">
+                <span class="logo-icon">&lt;/&gt;</span>
+                <span class="logo-text">CodingAI</span> 
+            </div>
+                        <div class="header-right">
+                <button id="toggleViewBtn" class="toggle-view-btn">Switch to Preview</button>
+                <button class="download-btn" id="downloadBtn" title="Download Code" style="display: none;"
+                    onclick="downloadCode()">
+                    <span class="download-icon" style="display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="white">
+                            <path
+                                d="m480-240 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160ZM200-640v440h560v-440H200Zm0 520q-33 0-56.5-23.5T120-200v-499q0-14 4.5-27t13.5-24l50-61q11-14 27.5-21.5T250-840h460q18 0 34.5 7.5T772-811l50 61q9 11 13.5 24t4.5 27v499q0 33-23.5 56.5T760-120H200Zm16-600h528l-34-40H250l-34 40Zm264 300Z" />
+                        </svg>
+                    </span>
+                </button>
+                <a href="https://github.com/writecream-org/AiCoder" class="github-btn" target="_blank">  
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Landing content that will be hidden after chat starts -->
+    <div id="landingSection">
+        <a href="https://www.writecream.com/" target="_blank">
+            <div class="powered-pill">
+                <span>Powered by <b><span class="gradient-text">Writecream AI</span></b>. Used by <b><span
+                            id="userCount">0</span>+ users</b>.</span>
+            </div>
+        </a>
+
+        <main class="container">
+            <!-- New Hero Section matching Figma design -->
+            <div class="hero-section">
+                <div class="inside-hero-section">
+                    <div class="hero-icon">
+                        <img src="public/variant=1.png" alt="AI Code Assistant Icon" />
+                    </div>
+                    <h1 class="hero-title ">Coding AI</h1>
+                </div>
+                <p class="hero-subtitle">
+                    Transform your ideas into code with the power of AI.<br>
+                    Simply describe what you want to build.
+                </p>
+                <p class="hero-description">
+                    AI-powered coding companion. Describe it, and we'll build it.
+                </p>
+            </div>
+
+            <!-- Keep existing input section unchanged -->
+            <div class="input-outer-container">
+                <div class="input-inner-container vertical">
+                    <textarea class="prompt-input" placeholder="Build a responsive navbar in React..."
+                        rows="1"></textarea>
+                    <div class="input-controls-row">
+                        <!-- <button class="attach-btn square" title="Attach"><span>📎</span></button> -->
+                        <div class="quality-selector">
+                            <select id="qualitySelectLanding" class="quality-dropdown">
+                                <option value="standard">SQ </option>
+                                <option value="higher">HQ</option>
+                            </select>
+                            <div class="quality-tooltip">
+                                <span class="tooltip-icon"><i class="fa-solid fa-circle-info"></i></span>
+                                <div class="tooltip-content">
+                                    <strong>SQ:</strong> Quick generation with good quality<br>
+                                    <strong>HQ:</strong> Slow generation with high quality
+                                </div>
+                            </div>
+                        </div>
+                        <button class="submit-btn generate-code-btn" title="Submit">
+                            <span>Generate Code</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="quick-apps">
+                <button class="quick-app-btn">Quiz app</button>
+                <button class="quick-app-btn">SaaS Landing page</button>
+                <button class="quick-app-btn">Pomodoro Timer</button>
+                <button class="quick-app-btn">Blog app</button>
+                <button class="quick-app-btn">Flashcard app</button>
+                <button class="quick-app-btn">Timezone dashboard</button>
+            </div>
+            <!-- New Feature Cards Section -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="public/variant=2.png" alt="Multi-Language Icon" />
+                    </div>
+                    <h3 class="feature-title">Multi-Language</h3>
+                    <p class="feature-description">React.js, Static code<br></p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="public/variant=5.png" alt="Instant Results Icon" />
+                    </div>
+                    <h3 class="feature-title">Instant Results</h3>
+                    <p class="feature-description">Get code in seconds</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="public/variant=6.png" alt="Smart Context Icon" />
+                    </div>
+                    <h3 class="feature-title">Smart Context</h3>
+                    <p class="feature-description">Understands your<br>requirements</p>
+                </div>
+            </div>
+
+            <!-- Keep existing quick apps but style them better -->
+
+            <!-- How It Works Section -->
+            <div class="how-it-works-section">
+                <h2 class="how-it-works-title">How It Works</h2>
+                <p class="how-it-works-subtitle">Transform your ideas into code in just three simple steps</p>
+
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon">
+                            <img src="public/variant=7.png" alt="Enter Prompt Icon" />
+                        </div>
+                        <h3 class="step-title">Enter Prompt</h3>
+                        <p class="step-description">Describe your coding needs in natural language. Be as specific or
+                            general as you like when describing the details</p>
+                    </div>
+
+                    <div class="step-arrow">→</div>
+
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">
+                            <img src="public/variant=8.png" alt="AI Processes Icon" />
+                        </div>
+                        <h3 class="step-title">AI Processes</h3>
+                        <p class="step-description">Our advanced AI analyzes your request and generates optimized,
+                            production-ready code.</p>
+                    </div>
+
+                    <div class="step-arrow">→</div>
+
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">
+                            <img src="public/variant=9.png" alt="Get Your Code Icon" />
+                        </div>
+                        <h3 class="step-title">Get Your Code</h3>
+                        <p class="step-description">Receive clean, well-documented code that you can immediately use in
+                            your projects.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Endless Possibilities Section -->
+            <div class="endless-possibilities-section">
+                <h2 class="endless-title">Endless Possibilities</h2>
+                <p class="endless-subtitle">From simple scripts to complex applications, our AI handles every aspect
+                    of<br>software development</p>
+
+                <div class="possibilities-grid">
+                    <div class="possibility-card">
+                        <div class="possibility-icon">
+                            <img src="public/variant=10.png" alt="Web Development Icon" />
+                        </div>
+                        <h3 class="possibility-title">Web Development</h3>
+                        <p class="possibility-description">React components, HTML/CSS layouts, JavaScript functions</p>
+                    </div>
+
+                    <div class="possibility-card">
+                        <div class="possibility-icon">
+                            <img src="public/variant=12.png" alt="Mobile Apps Icon" />
+                        </div>
+                        <h3 class="possibility-title">Mobile Apps</h3>
+                        <p class="possibility-description">React Native components, Flutter widgets, mobile UI/UX</p>
+                    </div>
+
+                    <div class="possibility-card">
+                        <div class="possibility-icon">
+                            <img src="public/variant=13.png" alt="Data Science Icon" />
+                        </div>
+                        <h3 class="possibility-title">Data Science</h3>
+                        <p class="possibility-description">Python scripts, data analysis, ML models, visualizations</p>
+                    </div>
+
+                    <div class="possibility-card">
+                        <div class="possibility-icon">
+                            <img src="public/variant=16.png" alt="UI/UX Design Icon" />
+                        </div>
+                        <h3 class="possibility-title">UI/UX Design</h3>
+                        <p class="possibility-description">Design systems, animations, responsive layouts</p>
+                    </div>
+
+                </div>
+
+                <div class="popular-prompts-section">
+                    <h3 class="popular-prompts-title">Popular Prompts</h3>
+                    <div class="popular-prompts-grid">
+                        <button class="popular-prompt-btn">"Build a responsive navbar with dropdown"</button>
+                        <button class="popular-prompt-btn">"Create a REST API for user authentication"</button>
+                        <button class="popular-prompt-btn">"Design a modern dashboard with charts"</button>
+                        <button class="popular-prompt-btn">"Generate Python data analysis script"</button>
+                        <button class="popular-prompt-btn">"Build a contact form with validation"</button>
+                        <button class="popular-prompt-btn">"Create animated loading components"</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- See It In Action Section -->
+            <div class="see-it-in-action-section">
+                <h2 class="action-title">See It In Action</h2>
+                <p class="action-subtitle">Real examples of code generated from simple natural language prompts</p>
+
+                <div class="demo-tabs">
+                    <button class="demo-tab active" data-tab="react">
+                        <span class="tab-icon">
+                            <img src="public/variant=18.png" alt="React Component Icon" />
+                        </span>
+                        <span class="tab-text">React Component</span>
+                    </button>
+                    <button class="demo-tab" data-tab="python">
+                        <span class="tab-icon">
+                            <img src="public/variant=19.png" alt="Python API Icon" />
+                        </span>
+                        <span class="tab-text">Static Code</span>
+                    </button>
+                    <button class="demo-tab" data-tab="mobile">
+                        <span class="tab-icon">
+                            <img src="public/variant=21.png" alt="Mobile UI Icon" />
+                        </span>
+                        <span class="tab-text">Mobile UI</span>
+                    </button>
+                </div>
+
+                <div class="demo-content">
+                    <!-- React Component Demo -->
+                    <div class="demo-pane active" id="react-demo">
+                        <div class="demo-prompt">
+                            <div class="prompt-icon">💬</div>
+                            <span>"Build a react component for a button with variants"</span>
+                        </div>
+                        <div class="demo-code-container">
+                            <div class="code-header">
+                                <div class="code-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <span class="code-title">React Component</span>
+                                <button class="copy-btn">📋 Copy</button>
+                            </div>
+                            <div class="code-image-container">
+                                <img src="public/2.png" alt="React Component Code" class="code-image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Python API Demo -->
+                    <div class="demo-pane" id="python-demo">
+                        <div class="demo-prompt">
+                            <div class="prompt-icon">💬</div>
+                            <span>"Create a REST API for user authentication"</span>
+                        </div>
+                        <div class="demo-code-container">
+                            <div class="code-header">
+                                <div class="code-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <span class="code-title">Python API</span>
+                                <button class="copy-btn">📋 Copy</button>
+                            </div>
+                            <div class="code-image-container">
+                                <img src="public/1.png" alt="Python API Code" class="code-image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile UI Demo -->
+                    <div class="demo-pane" id="mobile-demo">
+                        <div class="demo-prompt">
+                            <div class="prompt-icon">💬</div>
+                            <span>"Design a mobile profile card with animations"</span>
+                        </div>
+                        <div class="demo-code-container">
+                            <div class="code-header">
+                                <div class="code-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </div>
+                                <span class="code-title">Mobile UI</span>
+                                <button class="copy-btn">📋 Copy</button>
+                            </div>
+                            <div class="code-preview">
+                                <div class="mobile-mockup">
+                                    <div class="profile-card">
+                                        <img src="public/ss.png" alt="Mobile UI" class="code-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Capabilities Section -->
+            <div class="more-capabilities-section">
+
+                <h2 class="more-title">
+                    <p class="text-white">Discover </p>more...
+                </h2>
+                <p class="more-subtitle">From simple scripts to complex applications, generate code for any use case</p>
+
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <div class="capability-icon web-icon">
+                            <img src="public/Background (1).png" alt="Web Development">
+                        </div>
+                        <h3 class="capability-title">Web Development</h3>
+                        <p class="capability-description">React components, HTML/CSS layouts, responsive designs</p>
+                    </div>
+
+                    <div class="capability-card">
+                        <div class="capability-icon python-icon">
+                            <img src="public/Background (2).png" alt="Python Scripts">
+                        </div>
+                        <h3 class="capability-title">Python Scripts</h3>
+                        <p class="capability-description">Automation, data processing, API integrations</p>
+                    </div>
+
+                    <div class="capability-card">
+                        <div class="capability-icon data-icon">
+                            <img src="public/Background (3).png" alt="Data Science">
+                        </div>
+                        <h3 class="capability-title">Data Science</h3>
+                        <p class="capability-description">Analytics, visualization, machine learning models</p>
+                    </div>
+
+                    <div class="capability-card">
+                        <div class="capability-icon api-icon">🔧</div>
+                        <h3 class="capability-title">APIs & Backend</h3>
+                        <p class="capability-description">RESTful services, database queries, server logic</p>
+                    </div>
+
+                    <div class="capability-card">
+                        <div class="capability-icon mobile-icon">
+                            <img src="public/Background (4).png" alt="Mobile Apps">
+                        </div>
+                        <h3 class="capability-title">Mobile Apps</h3>
+                        <p class="capability-description">React Native, Flutter, cross-platform solutions</p>
+                    </div>
+
+                    <div class="capability-card">
+                        <div class="capability-icon devops-icon">
+                            <img src="public/Background (5).png" alt="DevOps & Tools">
+                        </div>
+                        <h3 class="capability-title">DevOps & Tools</h3>
+                        <p class="capability-description">CI/CD pipelines, deployment scripts, automation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loved by Developers Section -->
+            <div class="loved-by-developers-section">
+                <h2 class="loved-title">Loved by Developers</h2>
+                <p class="loved-subtitle">Join thousands of developers who've transformed their coding experience</p>
+
+                <div class="testimonial-container">
+                    <button class="testimonial-nav prev-btn" id="prevBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <div class="testimonial-card active" data-testimonial="0">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM0QTkwRTIiLz4KPHRleHQgeD0iNTAlIiB5PSI1NSUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJjZW50cmFsIj5TQzwvdGV4dD4KPC9zdmc+"
+                                    alt="Sarah Chen" class="avatar-img">
+                            </div>
+                            <div class="testimonial-rating">
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                            </div>
+                        </div>
+
+                        <blockquote class="testimonial-quote">
+                            "This AI assistant has revolutionized my development workflow. I can prototype ideas in
+                            minutes instead of hours. The code quality is exceptional"
+                        </blockquote>
+
+                        <div class="testimonial-author">
+                            <h4 class="author-name">Sarah Chen</h4>
+                            <p class="author-role">Frontend Developer</p>
+                            <p class="author-company">TechCorp</p>
+                        </div>
+                    </div>
+
+                    <button class="testimonial-nav next-btn" id="nextBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="testimonial-dots">
+                    <button class="dot active" data-slide="0"></button>
+                    <button class="dot" data-slide="1"></button>
+                    <button class="dot" data-slide="2"></button>
+                    <button class="dot" data-slide="3"></button>
+                    <button class="dot" data-slide="4"></button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Active Developers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1M+</div>
+                        <div class="stat-label">Code Snippets Generated</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.9/5</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ready to Code Faster Section -->
+            <div class="ready-to-code-section">
+                <div class="flex">
+                    <div class="cta-icon">✨</div>
+                    <h2 class="cta-title">Ready to Code Faster?</h2>
+                </div>
+                <p class="cta-subtitle">Join thousands of developers who've already<br>transformed their coding workflow
+                    with AI</p>
+
+                <div class="features-checklist">
+                    <div class="feature-item">
+                        <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16.6667 5L7.5 14.1667L3.33334 10" stroke="#4A90E2" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Generate code instantly</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16.6667 5L7.5 14.1667L3.33334 10" stroke="#4A90E2" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Support for 20+ languages</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16.6667 5L7.5 14.1667L3.33334 10" stroke="#4A90E2" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Production-ready outputs</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16.6667 5L7.5 14.1667L3.33334 10" stroke="#4A90E2" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Free to get started</span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <button class="cta-primary-btn" id="ctaGetStarted">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M13.825 6.91669L10 3.09169L6.175 6.91669" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M10 3.09169V16.9084" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Get Started Free
+                    </button>
+                    <button class="cta-secondary-btn" id="ctaLiveDemo">View Live Demo</button>
+                </div>
+
+                <div class="trust-badges">
+                    <p class="trust-text">Trusted by developers at top companies worldwide</p>
+                    <div class="company-logos">
+                        <span class="company-logo">Google</span>
+                        <span class="company-logo">Microsoft</span>
+                        <span class="company-logo">Amazon</span>
+                        <span class="company-logo">Netflix</span>
+                        <span class="company-logo">Spotify</span>
+                        <span class="company-logo">Uber</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Main application container with chat and sandpack -->
+    <div class="app-container" style="display: none;">
+        <!-- Chat interface -->
+        <div id="chatInterface" class="chat-interface">
+            <div class="chat-container" id="chatContainer">
+                <!-- Messages will be displayed here -->
+            </div>
+
+            <div class="loading-box" id="loadingBox" style="display: none;">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="loading-message">Coming up with response, may take a minute...</div>
+                <div class="loading-spinner"></div>
+            </div>
+
+            <!-- Persistent chat input that should always be visible -->
+            <div class="chat-input-section">
+                <div class="input-outer-container">
+                    <div class="input-inner-container vertical">
+                        <textarea class="prompt-input chat-prompt-input" placeholder="Ask for code changes..."
+                            rows="1"></textarea>
+                        <div class="input-controls-row">
+                            <!-- <button class="attach-btn square" title="Attach"><span>📎</span></button> -->
+                            <div class="quality-selector">
+                                <select id="qualitySelectChat" class="quality-dropdown">
+                                    <option value="standard"> SQ</option>
+                                    <option value="higher"> HQ</option>
+                                </select>
+                                <div class="quality-tooltip">
+                                    <span class="tooltip-icon"><i class="fa-solid fa-circle-info"></i></span>
+                                    <div class="tooltip-content">
+                                        <strong>Standard:</strong> Quick generation with good quality<br>
+                                        <strong>Higher:</strong> Architectural planning + premium code
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="submit-btn chat-submit-btn" title="Submit"><span>➔</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sandpack container - separate from chat -->
+        <div class="sandpack-wrapper" id="sandpackWrapper">
+            <!-- Toggle buttons for Code/Preview -->
+            <div class="view-toggle-container">
+                <button id="codeToggle" class="view-toggle-btn active">Code</button>
+                <button id="previewToggle" class="view-toggle-btn">Preview</button>
+            </div>
+            <div id="root" class="sandpack-container"></div>
+            <!-- Loading overlay for Sandpack area -->
+            <div class="loading-overlay" id="sandpackLoadingOverlay" style="display: none;">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="loading-message">Coming up with response, may take a minute...</div>
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-left">
+            Built with <a href="#">CodeGen</a> and <a href="https://www.writecream.com/"><span
+                    class="gradient-text">Writecream AI</span></a>.
+        </div>
+        <div class="footer-right">
+            <!-- <a href="#" class="footer-icon" title="Twitter">🐦</a>
+            <a href="#" class="footer-icon" title="GitHub">🐙</a> -->
+        </div>
+    </footer>
+
+    <!-- Include persistence script before the main script -->
+    <script src="persistence.js"></script>
+
+    <!-- Your React components -->
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
